@@ -5,7 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap
 from flask_login import LoginManager
 from flask_bcrypt import Bcrypt  # this is for bcrypt hashing  # see below
-# from flask_heroku import Heroku
+from flask_heroku import Heroku
 from flask_migrate import Migrate, Manager,  MigrateCommand
 
 
@@ -15,15 +15,16 @@ login_manager = LoginManager()
 login_manager.login_view = 'authentication.do_the_login' # this lets the login_manager know about the login route we are using to log the user into the application
 login_manager.session_protection = 'strong'  # protects the user session. force user to logout and log back in
 bcrypt = Bcrypt()
-# heroku = Heroku()
+heroku = Heroku()
 
 
 def create_app(config_type):  # dev, test, or prod
 
     app = Flask(__name__)
-    configuration = "/Users/claudiaacerra/PycharmProjects/Dogs/config/dev.py"
-    #app.config.from_object(configuration)
-    #configuration = os.path.join(os.getcwd(), 'config', config_type + '.py')
+    #configuration = "/Users/claudiaacerra/PycharmProjects/Dogs/config/dev.py"
+    configuration = os.path.join(os.getcwd(), 'config', config_type + '.py')
+    app.config.from_object(configuration)
+
 
     app.config.from_pyfile(configuration)
     db.init_app(app)  # initialize database
@@ -33,7 +34,7 @@ def create_app(config_type):  # dev, test, or prod
     login_manager.init_app(app)  # initialize login_manager
     bcrypt.init_app(app)
     migrate = Migrate(app, db)
-    # heroku.init_app(app)
+    heroku.init_app(app)
 
 
     #UserManager.init_app(app, db, User)
