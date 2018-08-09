@@ -6,7 +6,7 @@ from flask_bootstrap import Bootstrap
 from flask_login import LoginManager
 from flask_bcrypt import Bcrypt  # this is for bcrypt hashing  # see below
 from flask_heroku import Heroku
-from flask_migrate import Migrate, Manager,  MigrateCommand
+#from flask_migrate import Migrate, Manager,  MigrateCommand
 
 
 db = SQLAlchemy()
@@ -24,39 +24,22 @@ def create_app(config_type):  # dev, test, or prod
     #configuration = "/Users/claudiaacerra/PycharmProjects/Dogs/config/dev.py"
     configuration = os.path.join(os.getcwd(), 'config', config_type + '.py')
     #app.config.from_object(configuration)
-
-
     app.config.from_pyfile(configuration)
     db.init_app(app)  # initialize database
     #babel = Babel(app)
-
     bootstrap.init_app(app)  # initialize bootstrap
     login_manager.init_app(app)  # initialize login_manager
     bcrypt.init_app(app)
-    migrate = Migrate(app, db)
+    #migrate = Migrate(app, db)
     heroku.init_app(app)
 
 
-    #UserManager.init_app(app, db, User)
-    #user_manager = UserManager(app, db, User)
-    #the_password = 'Admin1'
-    #hashed_password = user_manager.hash_password(the_password)
-
-
-
-
-
-
-    from app.dogs.models import Dog, Purchase, Store, Vet, VetVisit, Doctor  # this is KEY.. without this I will not be able to create the table
-    from app.auth.models import User
+    #from app.dogs.models import Dog, Purchase, Store, Vet, VetVisit, Doctor  # this is KEY.. without this I will not be able to create the table
+    #from app.auth.models import User
     from app.dogs import main
     app.register_blueprint(main)
 
     from app.auth import authentication
     app.register_blueprint(authentication)
-
-
-
-
 
     return app

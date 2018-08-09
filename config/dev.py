@@ -1,13 +1,13 @@
-import os
-
-
-
-DEBUG=True,
-SECRET_KEY='topsecret' # this is used by flask and other 3rd party tools for
-SQLALCHEMY_DATABASE_URI='postgresql://postgres:p0stgr3s!@localhost/dogs' # this has the name of the DB type, PW, server and DB name
-SQLALCHEMY_TRACK_MODIFICATIONS=True
-CSRF_ENABLED = True
-USER_ENABLE_EMAIL = False
+# import os
+#
+#
+#
+# DEBUG=True,
+# SECRET_KEY='topsecret' # this is used by flask and other 3rd party tools for
+# SQLALCHEMY_DATABASE_URI='postgresql://postgres:p0stgr3s!@localhost/dogs' # this has the name of the DB type, PW, server and DB name
+# SQLALCHEMY_TRACK_MODIFICATIONS=True
+# CSRF_ENABLED = True
+# USER_ENABLE_EMAIL = False
 
 
 # # Flask-Mail SMTP server settings
