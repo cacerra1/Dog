@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<div class="container">
+
+
+     <h1><strong>About Each Dog </strong><i class= "fa fa-heart" aria-hidden="true"></i></h1>
+    <hr>
+    <br>
+
+
+<div class="container">
+    <div class="row">
+
+    {% for d in dog|sort(attribute='birth_date') %}
+        <div class="col-md-4">
+         <br>
+            <h3> Dog's Name: <font color="blue"><i>{{ d.name }}</i></font></h3>
+         <p>Sex: {{ d.sex }} </p>
+         <p>Adopt Date: {{  d.adopt_date }}</p>
+         <p>Birthday: {{ d.birth_date }}</p>
+         <p><strong> Current Age: </strong>{{ year - (d.birth_date.year)}}</p>
+
+         <p><img style="border:3px groove" src="static/image/{{ d.image_file}}" alt="book-img" height="130" width="190" class="img-rounded" ></p>
+
+            {% if d.name == 'Max' %}
+          <span class="label label-success"><a href="{{ url_for('main.max') }}" style="color: floralwhite"> More </a></span>
+            {% elif d.name == 'Fred' %}
+          <span class="label label-success"><a href="{{ url_for('main.fred') }}" style="color: floralwhite"> More </a></span>
+            {% elif d.name == 'Jake' %}
+          <span class="label label-success"><a href="{{ url_for('main.jake') }}" style="color: floralwhite"> More </a></span>
+            {% elif d.name == 'Henry' %}
+          <span class="label label-success"><a href="{{ url_for('main.henry') }}" style="color: floralwhite"> More </a></span>
+            {% elif d.name == 'Rosie' %}
+          <span class="label label-success"><a href="{{ url_for('main.rosie') }}" style="color: floralwhite"> More </a></span>
+            {% endif %}
+         <hr>
+
+        </div>
+
+    {% endfor %}
+    </div>
+</div>
+
+
+
+
+    {% endblock %}

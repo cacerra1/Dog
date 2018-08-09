@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+    {% block content %}
+
+<div class="container">
+
+
+    <h1><strong>Dog's Vet Appointments </strong><i class=  "fa fa-medkit" aria-hidden= "true"></i></h1>
+<hr>
+<div class="row">
+      <div class="col-md-8">
+
+<h4> <span class="label label-warning" > Vet Running Total :</span> ${{ end_total }}.00</h4>
+
+      </div>
+     <div class="col-md-4">
+
+<h4> <a href="/enter_vet" class="btn btn-info" role="button">New Appointment</a></h4>
+
+      </div>
+</div>
+<br>
+
+
+ <table class="table table-striped table-hover" border='1'  style="width:80%">
+ <thead>
+ <tr>
+
+   <th>Date of Visit</th>
+     <th>Dog Name</th>
+     <th>Reason</th>
+     <th>Total Cost</th>
+     <th>Vet Name</th>
+     <th>Edit</th>
+     <th>Cancel</th>
+  </tr>
+ </thead>
+{% for item in vet|sort(attribute='date') %}
+<TR>
+   <TD class="c3">{{item.date}}</TD>
+   <TD class="c2">{{item.dog.name}}</TD>
+   <TD class="c3">{{item.reason}}</TD>
+   <TD class="c5"><SPAN>${{ item.cost}}</SPAN></TD>
+   <TD class="c5"><SPAN>{{item.vet.name}}</SPAN></TD>
+ <td><span class="label label-primary"><a href="{{ url_for('main.edit_vet_visit', vet_id=item.id) }}" style="color: floralwhite" align="center"> edit </a></SPAN></td>
+<td><span class="label label-warning"><a href="{{ url_for('main.cancel_vet', vet_id=item.id) }}" style="color: floralwhite"> cancel </a></span></td>
+</TR>
+{% endfor %}
+</table>
+
+
+</div>
+    {% endblock %}

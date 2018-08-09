@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="container">
+        <h4 style="margin-left: 45px"> Delete This Appointment ? </h4>
+        <hr>
+
+        <table class="table table-striped table-hover" border='1'  style="width:80%" >
+            <thead>
+            <tr>
+                <th>id</th>
+                 <th>Visit Reason</th>
+                     <th>Date</th>
+
+                </tr>
+            </thead>
+            <tr>
+            <p style="margin-left: 45px">
+                <td>Vet Visit Id: {{ vet_visit.id }}<br></td>
+            <td>Reason: {{ vet_visit.reason }}<br></td>
+                <td>Date: {{ vet_visit.date }}</td>
+            </p>
+                </tr>
+             </table>
+
+
+        <form action="{{ url_for('main.cancel_vet', vet_id=vet_visit.id) }}" method="POST" style="margin-left: 45px">
+
+            <tr><button type="submit" class="btn btn-sm btn-primary"> delete </button></tr>
+        </form>
+
+    </div>
+
+
+
+
+<TR>
+   <TD class="c3">{{item.id}}</TD>
+   <TD class="c2">{{item.date}}</TD>
+   <TD class="c3">{{item.item}}</TD>
+   <TD class="c5"><SPAN>${{ item.total_cost}}</SPAN></TD>
+   <TD class="c5"><SPAN>{{item.store.name}}</SPAN></TD>
+   <td><span class="label label-primary"><a href="{{ url_for('main.edit_purchase', purchase_id=item.id) }}" style="color: floralwhite" align="center"> edit </a></SPAN></td>
+</TR>
+
+{% endblock %}

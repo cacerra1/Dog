@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+    {% block content %}
+
+<div class="container">
+
+    <h1><strong> Dogs Purchases </strong><i class= " fa fa-credit-card"></i></h1>
+
+<hr>
+<div class="row">
+      <div class="col-md-8">
+
+    <h4> <span class="label label-warning" >Running total :</span> ${{ end_total }}.00</h4>
+          </div>
+     <div class="col-md-4">
+
+         <h4> <a href="/enter_purchases" class="btn btn-info" role="button">New Purchase</a></h4>
+
+
+      </div>
+</div>
+
+<br>
+
+ <table class="table table-striped table-hover" border='1'  style="width:80%" >
+ <thead>
+ <tr>
+   <th>id</th>
+   <th>Date or Purchase</th>
+     <th>Item</th>
+     <th>Total Cost</th>
+     <th>Store Name</th>
+     <th> Edit </th>
+  </tr>
+ </thead>
+{% for item in store|sort(attribute='date') %}
+<TR>
+   <TD class="c3">{{item.id}}</TD>
+   <TD class="c2">{{item.date}}</TD>
+   <TD class="c3">{{item.item}}</TD>
+   <TD class="c5"><SPAN>${{ item.total_cost}}</SPAN></TD>
+   <TD class="c5"><SPAN>{{item.store.name}}</SPAN></TD>
+   <td><span class="label label-primary"><a href="{{ url_for('main.edit_purchase', purchase_id=item.id) }}" style="color: floralwhite" align="center"> edit </a></SPAN></td>
+</TR>
+{% endfor %}
+</table>
+</div>
+
+    {% endblock %}

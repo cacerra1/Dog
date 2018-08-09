@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+    {% block content %}
+
+<div class="container">
+
+
+
+    <h1><strong> Edit Existing Purchase </strong><i class= " fa fa-credit-card"></i></h1>
+    <hr>
+        {{ form.hidden_tag() }}
+        {{ wtf.quick_form(form) }}
+
+</div>
+ {% endblock %}

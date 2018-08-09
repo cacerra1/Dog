@@ -1,0 +1,70 @@
+html, body {height: 100%; margin: 10px; padding: 10px}
+h1, h2, h3, h4 { font-family: Sansita, serif }
+p, li { font-size: small }
+ul { position: relative; top: 25px; right: 7%;}
+footer{ position: absolute; width: 100%; left:0 ;bottom: 0; height: 40px }
+a h3 {position: relative; left: 10%}
+span {margin: 2px}
+.navbar-inverse { height: 25%; }
+.books {padding: 25px; position: relative; left: 5%; width: 80%}
+.publisher {padding: 25px; position: relative; left: 40px }
+.ftr {padding: 25px}
+.wrapper {position: relative; min-height: 120%;}
+.title { color: floralwhite }
+.form { height: 50%; width:70%; padding: 10px; position: relative; left: 48px}
+.form-group {width: 40%}
+.login-msg{position: relative; left: 48px}
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: #adadad;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: center;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+
+
+
+
+
+
+
+

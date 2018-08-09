@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+    {% block content %}
+
+<div class="container">
+
+
+
+    <h1><strong> Edit Existing Vet Visit Record </strong><i class= " fa fa-medkit"></i></h1>
+    <hr>
+        {{ form.hidden_tag() }}
+        {{ wtf.quick_form(form) }}
+
+</div>
+ {% endblock %}
