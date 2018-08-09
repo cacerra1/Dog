@@ -23,7 +23,7 @@ def create_app(config_type):  # dev, test, or prod
     app = Flask(__name__)
     #configuration = "/Users/claudiaacerra/PycharmProjects/Dogs/config/dev.py"
     configuration = os.path.join(os.getcwd(), 'config', config_type + '.py')
-    app.config.from_object(configuration)
+    #app.config.from_object(configuration)
 
 
     app.config.from_pyfile(configuration)
